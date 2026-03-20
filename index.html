@@ -62,3 +62,25 @@
 
 <!-- Modales ocultos no deben ser leíbles -->
 <div id="modal" aria-hidden="true">...</div>
+<!-- Un menú desplegable -->
+<button aria-expanded="false" aria-controls="submenu">Productos</button>
+<ul id="submenu" hidden>...</ul>
+
+<!-- Al abrir, JS actualiza el atributo -->
+btn.addEventListener('click', () => {
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', !expanded);
+    submenu.hidden = expanded;
+});
+
+<!-- Para notificaciones dinámicas que deben anunciarse -->
+<div aria-live="polite" id="notificacion"></div>
+<!-- Cuando agregues texto aquí, el lector lo leerá en voz alta -->
+ <!-- tabindex="0" incluye el elemento en el flujo normal de Tab -->
+<div role="button" tabindex="0">Clickeable con teclado</div>
+
+<!-- tabindex="-1" permite el foco por JS pero no con Tab manual -->
+<!-- Útil para dar foco programáticamente a modales -->
+<dialog tabindex="-1">...</dialog>
+
+<!-- EVITAR tabindex positivos (1, 2, 3...) rompen el orden natural -->
