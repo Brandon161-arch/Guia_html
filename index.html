@@ -84,3 +84,14 @@ btn.addEventListener('click', () => {
 <dialog tabindex="-1">...</dialog>
 
 <!-- EVITAR tabindex positivos (1, 2, 3...) rompen el orden natural -->
+ <dialog id="mi-modal">
+    <h3>Título</h3>
+    <p>Contenido...</p>
+    <!-- Este formulario cierra el dialog automáticamente sin JS explicito -->
+    <form method="dialog">
+        <button>Cerrar</button>
+    </form>
+</dialog>
+
+<!-- JS solo para abrir -->
+<button onclick="document.getElementById('mi-modal').showModal()">Abrir</button>
