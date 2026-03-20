@@ -15,3 +15,50 @@
     <video src="clip.mp4" controls autoplay muted></video>
 </body>
 </html>
+<table border="1">
+    <thead>
+        <tr><th>Atributo</th><th>Propósito</th></tr>
+    </thead>
+    <tbody>
+        <tr><td>lang="es"</td><td>Define el idioma principal</td></tr>
+    </tbody>
+</table>
+<form action="/procesar.php" method="POST">
+    <label for="email">Correo:</label>
+    <input type="email" id="email" required placeholder="tu@email.com">
+    
+    <label for="edad">Edad:</label>
+    <input type="number" id="edad" min="18" max="99">
+    
+    <button type="submit">Enviar Registro</button>
+</form>
+<!-- MAL: Sin descripción -->
+<img src="grafico-ventas.png">
+
+<!-- BIEN: Describe el contenido relevante -->
+<img src="grafico-ventas.png" alt="Gráfico de barras: ventas de Q1 2024 aumentaron 35% vs Q4 2023">
+
+<!-- Imagen decorativa sin contenido semántico: alt vacío -->
+<img src="patron-fondo.png" alt="">
+<!-- MAL: Un div como botón, el lector no sabe que es clickeable -->
+<div class="btn" onclick="enviar()">Enviar</div>
+
+<!-- MEJOR: Usar el elemento semántico correcto siempre que sea posible -->
+<button onclick="enviar()">Enviar</button>
+
+<!-- Con ARIA si no hay más remedio -->
+<div class="btn" role="button" tabindex="0" onclick="enviar()">Enviar</div>
+<!-- Sin accesibilidad: el lector solo dice "botón" -->
+<button>🔍</button>
+
+<!-- Con accesibilidad: el lector dice "botón Buscar en el catálogo" -->
+<button aria-label="Buscar en el catálogo">🔍</button>
+
+<!-- En iconos inline de SVG -->
+<svg aria-hidden="true" focusable="false">...</svg>
+<span class="sr-only">Cerrar menú</span>
+<!-- El ícono es solo decorativo, el texto ya lo describe -->
+<span aria-hidden="true">★</span> Favorito
+
+<!-- Modales ocultos no deben ser leíbles -->
+<div id="modal" aria-hidden="true">...</div>
